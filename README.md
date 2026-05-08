@@ -1,11 +1,3 @@
-# Instagram Profile Scraper
-# By Dante Petti
-# GitHub username: DanteCantante
-# edX username: DantePetti
-# City: New Haven
-# Country: United States of America
-#### Video Demo:  <https://youtu.be/KYhKXQHpRcw>
-#### Description:
 This Instagram scraper uses Playwright with a Chromium-based Scraping Browser to extract information such as the number of followers, following, and the photo count from a public Instagram profile. It leverages several libraries, including asyncio for asynchronous operations, BeautifulSoup for HTML parsing, and fake_useragent to randomize the user agent. The script first checks if the correct number of command-line arguments is provided, specifically requiring an Instagram username as input. If the correct arguments are not provided, the script exits with an error message.
 
 The scraper connects to a remote Chromium instance using a WebSocket URL for proxying browser traffic through a Scraping Browser proxy service. This WebSocket URL includes authentication credentials, which are hardcoded in the script but can be updated if necessary. Once connected, the script creates a new browser context with a random user agent and sets the viewport to simulate a desktop browser environment. It also adds an initialization script to remove the navigator.webdriver property, a common way to avoid bot detection by websites.
