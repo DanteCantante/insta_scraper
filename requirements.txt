@@ -1,0 +1,6 @@
+asyncio
+sys
+playwright
+fake-useragent
+beautifulsoup4
+time

@@ -1,1 +1,19 @@
-# insta_scraper
+# Instagram Profile Scraper
+# By Dante Petti
+# GitHub username: DanteCantante
+# edX username: DantePetti
+# City: New Haven
+# Country: United States of America
+#### Video Demo:  <https://youtu.be/KYhKXQHpRcw>
+#### Description:
+This Instagram scraper uses Playwright with a Chromium-based Scraping Browser to extract information such as the number of followers, following, and the photo count from a public Instagram profile. It leverages several libraries, including asyncio for asynchronous operations, BeautifulSoup for HTML parsing, and fake_useragent to randomize the user agent. The script first checks if the correct number of command-line arguments is provided, specifically requiring an Instagram username as input. If the correct arguments are not provided, the script exits with an error message.
+
+The scraper connects to a remote Chromium instance using a WebSocket URL for proxying browser traffic through a Scraping Browser proxy service. This WebSocket URL includes authentication credentials, which are hardcoded in the script but can be updated if necessary. Once connected, the script creates a new browser context with a random user agent and sets the viewport to simulate a desktop browser environment. It also adds an initialization script to remove the navigator.webdriver property, a common way to avoid bot detection by websites.
+
+The scraper navigates to the Instagram profile page of the user specified in the command-line arguments. It waits until the page is fully loaded, indicated by the networkidle state, before proceeding to parse the HTML content. A five-second delay is included to ensure that all dynamic content has rendered before extracting data. The HTML content is passed to BeautifulSoup for parsing, specifically targeting the HTML elements that contain the number of followers, following, and photos.
+
+Once the relevant data is found, it is cleaned and processed. The followers, following, and photo counts may be formatted in various ways (e.g., numbers like "1.5M" or "2K"), so the script includes helper functions to convert these values into standard integer formats. For example, if the number includes "M" (million) or "K" (thousand), these are converted into their full numerical representations.
+
+Finally, the parsed and converted data is printed to the console, showing the number of followers, following, and photos for the given Instagram profile. If any errors occur during the scraping process, such as network issues or changes in Instagram's HTML structure, they are caught and printed as error messages. After the script completes or encounters an error, the browser instance is closed to ensure proper cleanup.
+
+In summary, this script provides a straightforward way to scrape public Instagram profile data using Playwright and BeautifulSoup. It is important to note that the script relies on a proxy service for accessing Instagram, so the WebSocket URL and credentials must be valid. Additionally, the script assumes that Instagram’s HTML structure will not change significantly, but any modifications to the site could require updates to the parsing logic.
